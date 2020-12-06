@@ -9,7 +9,6 @@ export const LayoutWrapper = styled.div`
 
 export const MainContent = styled.main`
   flex: 1 0 auto;
-  padding: 0px ${({ theme }) => theme.padding.xl};
   display: flex;
 
   & > * {

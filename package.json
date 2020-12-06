@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-google-maps/api": "^1.13.0",
+    "google-map-react": "^2.1.9",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-device-detect": "^1.14.0",

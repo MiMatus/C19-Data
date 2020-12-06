@@ -5,6 +5,7 @@ export const ContactWrapper = styled.div`
   margin-top: ${({ theme }) => theme.margin.xl};
   display: flex;
   flex-direction: column;
+  padding: 0px ${({ theme }) => theme.padding.xl};
 `
 
 export const Text = styled.p`
