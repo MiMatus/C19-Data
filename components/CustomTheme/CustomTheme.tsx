@@ -6,8 +6,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont,'Arial';
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont,'Arial';
   font-size: 16px;
+  background: #fff;
 }
 
 a {
@@ -21,7 +22,42 @@ a {
 `
 
 export const CustomTheme: FC = ({ children }) => {
-  const styles = {}
+  const styles = {
+    margin: {
+      sm: "10px",
+      md: "15px",
+      lg: "20px",
+      xl: "25px",
+    },
+    padding: {
+      sm: "10px",
+      md: "15px",
+      lg: "20px",
+      xl: "25px",
+    },
+    font: {
+      size: {
+        sm: "12px",
+        md: "16px",
+        lg: "20px",
+        xl: "24px",
+        xxl: "",
+      },
+    },
+    border: {
+      color: "#C2C2C2",
+    },
+    success: {
+      color: "#0ACF83",
+    },
+    error: {
+      color: "#F24E1E",
+    },
+    breakpoint: {
+      mobile: 481,
+      tablet: 901,
+    },
+  }
 
   return (
     <>
