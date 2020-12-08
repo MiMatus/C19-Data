@@ -1,5 +1,5 @@
 import React from "react"
-import { Title, TitlePart, Wrapper } from "./Homepage.style"
+import { StyledChartList, Title, TitlePart, Wrapper } from "./Homepage.style"
 import { InTime } from "./InTime"
 import { Map } from "./Map"
 import { Stats } from "./Stats"
@@ -13,6 +13,7 @@ export const Homepage: React.FC = ({}) => {
       </Title>
       <Stats></Stats>
       <InTime />
+      <StyledChartList />
     </Wrapper>
   )
 }

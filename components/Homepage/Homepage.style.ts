@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { ChartList } from "./ChartList"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -14,4 +15,10 @@ export const Title = styled.h2`
 `
 export const TitlePart = styled.span`
   color: #f24e1e;
+`
+
+export const StyledChartList = styled(ChartList)`
+  margin-top: ${({ theme }) => theme.margin.xl};
+  margin-left: ${({ theme }) => theme.margin.xl};
+  margin-right: ${({ theme }) => theme.margin.xl};
 `
