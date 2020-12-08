@@ -45,7 +45,7 @@ export const Stats: React.FC = ({}) => {
   }
 
   useEffect(() => {
-    startInterval()
+    //startInterval()
     return () => stopInterval()
   }, [])
 
@@ -53,7 +53,7 @@ export const Stats: React.FC = ({}) => {
   return (
     <Wrapper
       onMouseEnter={() => stopInterval()}
-      onMouseLeave={() => startInterval()}
+      onMouseLeave={() => null /*startInterval()*/}
     >
       <Title>....v číslach</Title>
       <SliderWrapper>

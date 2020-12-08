@@ -12,6 +12,13 @@ export const Title = styled.h2`
   margin-bottom: 0px;
   font-weight: 900;
   font-size: 64px;
+  text-align: center;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    margin-left: ${({ theme }) => theme.margin.xl};
+    text-align: start;
+  }
 `
 export const TitlePart = styled.span`
   color: #f24e1e;

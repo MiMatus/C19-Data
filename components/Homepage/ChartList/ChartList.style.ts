@@ -3,6 +3,12 @@ import styled from "styled-components"
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    align-items: flex-start;
+  }
 `
 
 export const Title = styled.h3`
@@ -18,6 +24,14 @@ export const ListWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    flex-direction: row;
+  }
 `
 
 interface ChartItemWrapperProps {

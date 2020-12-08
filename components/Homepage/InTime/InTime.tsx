@@ -63,7 +63,7 @@ export const InTime: React.FC = ({}) => {
             <Count>100 000</Count>
           </CountWrapper>
         </CountIconWrapper>
-        <Delimiter>/</Delimiter>
+        <Delimiter></Delimiter>
         <CountIconWrapper>
           <CountWrapper>
             <CountTitle>{`${Counts[index].date.getUTCDate()}.${Counts[

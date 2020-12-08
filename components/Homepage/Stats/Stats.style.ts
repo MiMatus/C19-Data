@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   margin-left: ${({ theme }) => theme.margin.xl};
   margin-right: ${({ theme }) => theme.margin.xl};
+  align-items: center;
 `
 export const Title = styled.h3`
   font-weight: 900;

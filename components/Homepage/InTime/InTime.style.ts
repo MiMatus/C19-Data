@@ -13,6 +13,12 @@ export const Title = styled.h2`
   margin-bottom: 0px;
   font-weight: 900;
   font-size: 56px;
+  text-align: center;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    text-align: start;
+  }
 `
 export const TitlePart = styled.span`
   color: #f24e1e;
@@ -22,6 +28,12 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   margin-top: ${({ theme }) => theme.margin.xxl};
+  flex-direction: column;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    flex-direction: row;
+  }
 `
 
 export const CountIconWrapper = styled.div`
@@ -52,4 +64,17 @@ export const Delimiter = styled.span`
   font-size: 64px;
   margin-left: ${({ theme }) => theme.margin.xxl};
   margin-right: ${({ theme }) => theme.margin.xxl};
+
+  &::before {
+    display: block;
+    content: "||";
+  }
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    &::before {
+      display: block;
+      content: "/";
+    }
+  }
 `

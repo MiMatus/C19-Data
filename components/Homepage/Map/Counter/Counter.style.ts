@@ -1,10 +1,15 @@
 import styled from "styled-components"
 
 export const CountsWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
+  display: none;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 `
 interface CountRowProps {
   color: "black" | "red"

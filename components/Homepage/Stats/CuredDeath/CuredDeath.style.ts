@@ -2,11 +2,15 @@ import styled from "styled-components"
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-left: ${({ theme }) => theme.margin.xl};
   margin-right: ${({ theme }) => theme.margin.xl};
   justify-content: space-between;
   align-items: center;
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    flex-direction: row;
+  }
 `
 
 export const Description = styled.span`
@@ -47,10 +51,15 @@ interface StatWrapperProps {
 }
 
 export const StatWrapper = styled.div<StatWrapperProps>`
-  max-width: 45%;
   text-align: ${({ direction }) => (direction === "left" ? "start" : "end")};
-
+  margin-top: ${({ theme }) => theme.margin.xl};
   ${CountIconWrapper} {
     float: ${({ direction }) => (direction === "left" ? "right" : "left")};
+  }
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    max-width: 45%;
+    margin-top: 0px;
   }
 `
