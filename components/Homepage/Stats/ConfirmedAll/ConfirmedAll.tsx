@@ -10,7 +10,15 @@ import {
   Wrapper,
 } from "./ConfirmedAll.style"
 
-export const ConfirmedAll: React.FC = ({}) => {
+interface ConfirmedAllProps {
+  totalInfected: number
+  totalTests: number
+}
+
+export const ConfirmedAll: React.FC<ConfirmedAllProps> = ({
+  totalInfected,
+  totalTests,
+}) => {
   return (
     <Wrapper>
       <StatWrapper direction="left">
@@ -28,7 +36,7 @@ export const ConfirmedAll: React.FC = ({}) => {
           <Icon src="/images/cured-icon.svg"></Icon>
           <CountWrapper>
             <Title>Potvrzené případy celkem</Title>
-            <Count>100 000</Count>
+            <Count>{totalInfected}</Count>
           </CountWrapper>
         </CountIconWrapper>
       </StatWrapper>
@@ -46,7 +54,7 @@ export const ConfirmedAll: React.FC = ({}) => {
           <Icon src="/images/death-icon.svg"></Icon>
           <CountWrapper>
             <Title>Provedené testy</Title>
-            <Count>100 000</Count>
+            <Count>{totalTests}</Count>
           </CountWrapper>
         </CountIconWrapper>
       </StatWrapper>

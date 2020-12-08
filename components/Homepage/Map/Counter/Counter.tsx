@@ -2,14 +2,20 @@ import React from "react"
 import { CountsWrapper, CountRow, Count, Title } from "./Counter.style"
 
 interface CounterProps {
+  currentlyInfected: number
+  totalDeaths: number
   className?: string
 }
 
-export const Counter: React.FC<CounterProps> = ({ className }) => {
+export const Counter: React.FC<CounterProps> = ({
+  className,
+  totalDeaths,
+  currentlyInfected,
+}) => {
   return (
     <CountsWrapper className={className}>
       <CountRow color="red">
-        <Count>150 000</Count>
+        <Count>{currentlyInfected}</Count>
         <Title>
           Aktuálne
           <br />
@@ -17,7 +23,7 @@ export const Counter: React.FC<CounterProps> = ({ className }) => {
         </Title>
       </CountRow>
       <CountRow color="black">
-        <Count>8000</Count>
+        <Count>{totalDeaths}</Count>
         <Title>Mŕtvych</Title>
       </CountRow>
     </CountsWrapper>

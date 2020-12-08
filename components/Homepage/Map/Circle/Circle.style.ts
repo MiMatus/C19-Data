@@ -40,12 +40,12 @@ export const CircleWrapper = styled.div<CircleWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${({ size }) => `${100 / size}px`};
-  width: ${({ size }) => `${100 / size}px`};
+  height: ${({ size }) => `${100 * size}px`};
+  width: ${({ size }) => `${100 * size}px`};
   border-radius: 50%;
   position: relative;
-  top: ${({ size }) => `-${50 / size}px`};
-  left: ${({ size }) => `-${50 / size}px`};
+  top: ${({ size }) => `-${50 * size}px`};
+  left: ${({ size }) => `-${50 * size}px`};
 
   &::before {
     border-radius: 50%;

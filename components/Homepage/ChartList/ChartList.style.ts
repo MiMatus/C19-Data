@@ -4,11 +4,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoint["tablet"]}px) {
-    align-items: flex-start;
-  }
 `
 
 export const Title = styled.h3`

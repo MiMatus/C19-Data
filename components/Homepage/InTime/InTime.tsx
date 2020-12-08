@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { InfectedInTimeData } from "../../../utils/getInfectedInTimeData"
 import {
   Count,
   CountIconWrapper,
@@ -12,14 +13,17 @@ import {
   Wrapper,
 } from "./InTime.style"
 
-const Counts = [
-  { date: new Date(), count: 10 },
-  { date: new Date(), count: 50 },
-  { date: new Date(), count: 500 },
-  { date: new Date(), count: 1000 },
-]
+interface InTimeProps {
+  className?: string
+  inTimeData: Array<InfectedInTimeData>
+  totalInfected: number
+}
 
-export const InTime: React.FC = ({}) => {
+export const InTime: React.FC<InTimeProps> = ({
+  className,
+  inTimeData: Counts,
+  totalInfected,
+}) => {
   const [index, setIndex] = useState<number>(0)
   const [count, setCount] = useState<number>(0)
   const [intervalRef, setIntervalRef] = useState<number | undefined>()
@@ -29,8 +33,9 @@ export const InTime: React.FC = ({}) => {
     if (index >= Counts.length - 1) {
       return
     }
-    const nextCount = Counts[Math.min(index + 1, Counts.length - 1)].count
-    const nextSpeed = 5000 / (nextCount - Counts[index].count)
+    const nextCount =
+      Counts[Math.min(index + 1, Counts.length - 1)].totalInfected
+    const nextSpeed = 5000 / (nextCount - Counts[index].totalInfected)
     setIntervalRef(
       setInterval(() => {
         setCount((prevCount) => prevCount + 1)
@@ -40,7 +45,8 @@ export const InTime: React.FC = ({}) => {
   }, [index])
 
   useEffect(() => {
-    const nextCount = Counts[Math.min(index + 1, Counts.length - 1)].count
+    const nextCount =
+      Counts[Math.min(index + 1, Counts.length - 1)].totalInfected
     if (count >= nextCount) {
       setIndex((prevIndex) => prevIndex + 1)
     }
@@ -51,7 +57,7 @@ export const InTime: React.FC = ({}) => {
   }, [])
 
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <Title>
         Nakazený <TitlePart>v čase</TitlePart>
       </Title>
@@ -59,18 +65,14 @@ export const InTime: React.FC = ({}) => {
         <CountIconWrapper>
           <Icon src="/images/yesterday-icon.svg"></Icon>
           <CountWrapper>
-            <CountTitle>Smrtnost v procentech</CountTitle>
-            <Count>100 000</Count>
+            <CountTitle>Celkovo nakazených</CountTitle>
+            <Count>{totalInfected}</Count>
           </CountWrapper>
         </CountIconWrapper>
         <Delimiter></Delimiter>
         <CountIconWrapper>
           <CountWrapper>
-            <CountTitle>{`${Counts[index].date.getUTCDate()}.${Counts[
-              index
-            ].date.getUTCMonth()}.${Counts[
-              index
-            ].date.getUTCFullYear()}`}</CountTitle>
+            <CountTitle>{Counts[index].date}</CountTitle>
             <Count>{count}</Count>
           </CountWrapper>
         </CountIconWrapper>

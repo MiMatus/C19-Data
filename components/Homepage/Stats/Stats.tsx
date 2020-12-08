@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { SummaryDataResponse } from "../../../utils/getSummaryData"
 import { AllStats } from "./AllStats"
 import { ConfirmedAll } from "./ConfirmedAll"
 import { CuredDeath } from "./CuredDeath"
@@ -12,13 +13,26 @@ import {
   Wrapper,
 } from "./Stats.style"
 
-const StatsList = [
-  <CuredDeath key="0" />,
-  <AllStats key="1" />,
-  <ConfirmedAll key="2" />,
-]
+interface StatsProps {
+  className?: string
+  summaryData: SummaryDataResponse
+}
 
-export const Stats: React.FC = ({}) => {
+export const Stats: React.FC<StatsProps> = ({ className, summaryData }) => {
+  const StatsList = [
+    <CuredDeath
+      key="0"
+      cured={summaryData.data?.totalCured ?? 0}
+      death={summaryData.data?.totalDeaths ?? 0}
+    />,
+    <AllStats key="1" {...summaryData.data} />,
+    <ConfirmedAll
+      key="2"
+      totalInfected={summaryData.data?.totalInfected ?? 0}
+      totalTests={summaryData.data?.totalTests ?? 0}
+    />,
+  ]
+
   const [sliderCount, setSliderCount] = useState<number>(0)
   const [intervalRef, setIntervalRef] = useState<number | undefined>()
 
@@ -49,9 +63,9 @@ export const Stats: React.FC = ({}) => {
     return () => stopInterval()
   }, [])
 
-  console.log(sliderCount)
   return (
     <Wrapper
+      className={className}
       onMouseEnter={() => stopInterval()}
       onMouseLeave={() => null /*startInterval()*/}
     >

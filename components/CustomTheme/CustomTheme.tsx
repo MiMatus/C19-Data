@@ -29,6 +29,7 @@ export const CustomTheme: FC = ({ children }) => {
       lg: "20px",
       xl: "25px",
       xxl: "30px",
+      xxxl: "40px",
     },
     padding: {
       sm: "10px",

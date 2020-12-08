@@ -10,7 +10,12 @@ import {
   Wrapper,
 } from "./CuredDeath.style"
 
-export const CuredDeath: React.FC = ({}) => {
+interface CuredDeathProps {
+  death: number
+  cured: number
+}
+
+export const CuredDeath: React.FC<CuredDeathProps> = ({ cured, death }) => {
   return (
     <Wrapper>
       <StatWrapper direction="left">
@@ -24,7 +29,7 @@ export const CuredDeath: React.FC = ({}) => {
           <Icon src="/images/cured-icon.svg"></Icon>
           <CountWrapper>
             <Title color="green">Vylečení</Title>
-            <Count>100 000</Count>
+            <Count>{cured}</Count>
           </CountWrapper>
         </CountIconWrapper>
       </StatWrapper>
@@ -41,7 +46,7 @@ export const CuredDeath: React.FC = ({}) => {
           <Icon src="/images/death-icon.svg"></Icon>
           <CountWrapper>
             <Title>Zosnulý</Title>
-            <Count>100 000</Count>
+            <Count>{death}</Count>
           </CountWrapper>
         </CountIconWrapper>
       </StatWrapper>

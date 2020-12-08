@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { CircleWrapper, MessageWrapper, Row } from "./Circle.style"
 
 interface CircleProps {
+  title: string
   size: number
   deaths: number
   infected: number
@@ -9,7 +10,12 @@ interface CircleProps {
   lng: number
 }
 
-export const Circle: React.FC<CircleProps> = ({ size, deaths, infected }) => {
+export const Circle: React.FC<CircleProps> = ({
+  size,
+  deaths,
+  infected,
+  title,
+}) => {
   const [infoOpened, setInfoOpened] = useState<boolean>(false)
 
   return (
@@ -22,13 +28,17 @@ export const Circle: React.FC<CircleProps> = ({ size, deaths, infected }) => {
       {infoOpened && (
         <MessageWrapper>
           <Row>
+            <strong>{title}</strong>
+          </Row>
+          <Row>
             <strong>Nakazený:</strong> {infected}
           </Row>
           <Row>
             <strong>Úmrtia:</strong> {deaths}
           </Row>
           <Row>
-            <strong>Percentuálne:</strong> {deaths / (infected / 100)}%
+            <strong>Percentuálne:</strong>{" "}
+            {(deaths / (infected / 100)).toFixed(2)}%
           </Row>
         </MessageWrapper>
       )}

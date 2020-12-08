@@ -1,4 +1,5 @@
 import React from "react"
+import { SummaryData } from "../../../../utils/getSummaryData"
 import {
   Count,
   CountIconWrapper,
@@ -8,56 +9,63 @@ import {
   Wrapper,
 } from "./AllStats.style"
 
-export const AllStats: React.FC = ({}) => {
+export const AllStats: React.FC<SummaryData> = ({
+  currentlyInfected,
+  totalCured,
+  totalDeaths,
+  totalInfected,
+  totalTests,
+  lastDayInfected,
+}) => {
   return (
     <Wrapper>
       <CountIconWrapper>
         <Icon src="/images/cured-icon.svg"></Icon>
         <CountWrapper>
           <Title>Vylečení</Title>
-          <Count>100 000</Count>
+          <Count>{totalCured}</Count>
         </CountWrapper>
       </CountIconWrapper>
       <CountIconWrapper>
         <Icon src="/images/death-icon.svg"></Icon>
         <CountWrapper>
           <Title>Zosnulý</Title>
-          <Count>100 000</Count>
+          <Count>{totalDeaths}</Count>
         </CountWrapper>
       </CountIconWrapper>
       <CountIconWrapper>
         <Icon src="/images/yesterday-icon.svg"></Icon>
         <CountWrapper>
           <Title>Nové prípady za včerejšek</Title>
-          <Count>100 000</Count>
+          <Count>{lastDayInfected}</Count>
         </CountWrapper>
       </CountIconWrapper>
       <CountIconWrapper>
         <Icon src="/images/test-icon.svg"></Icon>
         <CountWrapper>
           <Title>Celkem testu</Title>
-          <Count>100 000</Count>
+          <Count>{totalTests}</Count>
         </CountWrapper>
       </CountIconWrapper>
       <CountIconWrapper>
         <Icon src="/images/confirmed-test-icon.svg"></Icon>
         <CountWrapper>
           <Title>Potvrzené připady</Title>
-          <Count>100 000</Count>
+          <Count>{totalInfected}</Count>
         </CountWrapper>
       </CountIconWrapper>
       <CountIconWrapper>
         <Icon src="/images/infected-icon.svg"></Icon>
         <CountWrapper>
           <Title>Aktívni případy</Title>
-          <Count>100 000</Count>
+          <Count>{currentlyInfected}</Count>
         </CountWrapper>
       </CountIconWrapper>
       <CountIconWrapper>
         <Icon src="/images/percentage-icon.svg"></Icon>
         <CountWrapper>
           <Title>Smrtnost v procentech</Title>
-          <Count>100 000</Count>
+          <Count>{(totalDeaths / (totalInfected / 100)).toFixed(2)}</Count>
         </CountWrapper>
       </CountIconWrapper>
     </Wrapper>
