@@ -9,6 +9,9 @@ export const HeaderWrapper = styled.div`
   background: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   z-index: 100;
+  position: sticky;
+  top: 0px;
+  flex: 0 0 auto;
 `
 
 export const LogoWrapper = styled.div`

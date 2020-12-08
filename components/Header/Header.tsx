@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Device } from "../Device"
 
 import {
@@ -10,8 +10,37 @@ import {
 
 import { Menu } from "./Menu"
 
-export const Header: React.FC = ({}) => {
+interface HeaderProps {
+  onScroll: boolean
+}
+
+export const Header: React.FC<HeaderProps> = ({ onScroll }) => {
   const [menuOpened, setMenuOpened] = useState<boolean>(false)
+  const [hidden, setHidden] = useState<boolean>(false)
+
+  const handleScroll = () => {
+    if (window.scrollY >= 200) {
+      setHidden(false)
+      return
+    }
+    setHidden(true)
+    setMenuOpened(false)
+  }
+
+  useEffect(() => {
+    console.log(onScroll)
+    if (!onScroll || typeof window === "undefined") {
+      return
+    }
+    setHidden(true)
+    setMenuOpened(false)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  if (hidden) {
+    return null
+  }
 
   return (
     <HeaderWrapper>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Wrapper } from "./Map.style"
+import { Wrapper, StyledCounter, StyledControl } from "./Map.style"
 import GoogleMapReact from "google-map-react"
 import MapStyles from "./styles"
 import { Circle } from "./Circle"
@@ -7,6 +7,8 @@ import { Circle } from "./Circle"
 export const Map: React.FC = ({}) => {
   return (
     <Wrapper>
+      <StyledCounter />
+      <StyledControl />
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyCKqCCVyj36sKauneMgOLTK83UhwYDLS_0" }}
         defaultCenter={{

@@ -6,7 +6,7 @@ import type { AppProps } from "next/app"
 const CustomApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <CustomTheme>
-      <Layout>
+      <Layout headerOnScroll={pageProps.headerOnScroll ?? false}>
         <Component {...pageProps} />
       </Layout>
     </CustomTheme>

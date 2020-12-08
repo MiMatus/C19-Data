@@ -3,7 +3,11 @@ import React from "react"
 import { Header } from "../Header"
 import { LayoutWrapper, MainContent } from "./Layout.style"
 
-export const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  headerOnScroll: boolean
+}
+
+export const Layout: React.FC<LayoutProps> = ({ children, headerOnScroll }) => {
   return (
     <>
       <Head>
@@ -16,7 +20,7 @@ export const Layout: React.FC = ({ children }) => {
         />
       </Head>
       <LayoutWrapper>
-        <Header></Header>
+        <Header onScroll={headerOnScroll}></Header>
         <MainContent>{children}</MainContent>
         <footer></footer>
       </LayoutWrapper>
