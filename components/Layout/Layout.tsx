@@ -1,7 +1,7 @@
 import Head from "next/head"
 import React from "react"
 import { Header } from "../Header"
-import { LayoutWrapper, MainContent } from "./Layout.style"
+import { Footer, LayoutWrapper, MainContent } from "./Layout.style"
 
 export const Layout: React.FC = ({ children }) => {
   return (
@@ -18,7 +18,7 @@ export const Layout: React.FC = ({ children }) => {
       <LayoutWrapper>
         <Header></Header>
         <MainContent>{children}</MainContent>
-        <footer></footer>
+        <Footer></Footer>
       </LayoutWrapper>
     </>
   )

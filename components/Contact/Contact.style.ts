@@ -6,6 +6,7 @@ export const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px ${({ theme }) => theme.padding.xl};
+  position: relative;
 `
 
 export const Text = styled.p`
