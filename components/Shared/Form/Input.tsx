@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { InputTag, InputWrapper, TextAreaTag, Title } from "./Input.style"
 
 interface InputProps {
+  onError?: () => void
   required?: boolean
   onInput?: (value: string) => void
   type: "text" | "password" | "email" | "textArea"
@@ -11,6 +12,7 @@ interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({
+  onError,
   onInput,
   className,
   type,
@@ -22,11 +24,13 @@ export const Input: React.FC<InputProps> = ({
 
   const handleInput = (event) => {
     setError(false)
+    event.target.setCustomValidity("")
     onInput && onInput(event.target.value)
   }
 
   const handleInvalid = (event) => {
     setError(true)
+    onError && onError()
     errorMessage && event.target.setCustomValidity(errorMessage)
   }
 

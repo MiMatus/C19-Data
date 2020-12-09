@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react"
 import { Device } from "../Device"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 import {
   HeaderWrapper,
   LargeLogo,
   LogoWrapper,
+  SmallLogo,
   StyledMenuIcon,
 } from "./Header.style"
 
 import { Menu } from "./Menu"
 
-interface HeaderProps {
-  onScroll: boolean
-}
-
-export const Header: React.FC<HeaderProps> = ({ onScroll }) => {
+export const Header: React.FC = () => {
   const [menuOpened, setMenuOpened] = useState<boolean>(false)
   const [hidden, setHidden] = useState<boolean>(false)
+  const router = useRouter()
 
   const handleScroll = () => {
     if (window.scrollY >= 200) {
@@ -28,15 +28,17 @@ export const Header: React.FC<HeaderProps> = ({ onScroll }) => {
   }
 
   useEffect(() => {
-    console.log(onScroll)
-    if (!onScroll || typeof window === "undefined") {
+    const pathname = router.pathname
+    setHidden(false)
+
+    if (!["/", ""].includes(pathname)) {
       return
     }
     setHidden(true)
     setMenuOpened(false)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [router.pathname])
 
   if (hidden) {
     return null
@@ -45,18 +47,18 @@ export const Header: React.FC<HeaderProps> = ({ onScroll }) => {
   return (
     <HeaderWrapper>
       <LogoWrapper>
-        <Device device="desktop">
+        <Link href="/">
           <LargeLogo src="/images/logo-large.png"></LargeLogo>
-        </Device>
-        <Device device="mobile">
-          <LargeLogo src="/images/logo-small.png"></LargeLogo>
-        </Device>
+        </Link>
+        <Link href="/">
+          <SmallLogo src="/images/logo-small.png"></SmallLogo>
+        </Link>
       </LogoWrapper>
       <StyledMenuIcon
         onClick={() => setMenuOpened(!menuOpened)}
         opened={menuOpened}
       ></StyledMenuIcon>
-      {menuOpened && <Menu />}
+      {menuOpened && <Menu onClick={() => setMenuOpened(false)} />}
     </HeaderWrapper>
   )
 }

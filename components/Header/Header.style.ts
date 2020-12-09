@@ -22,7 +22,23 @@ export const LogoWrapper = styled.div`
 
 export const LargeLogo = styled.img`
   max-height: 100%;
+  display: none;
+  cursor: pointer;
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    display: inline-block;
+  }
 `
+
+export const SmallLogo = styled.img`
+  max-height: 100%;
+  cursor: pointer;
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    display: none;
+  }
+`
+
 export const StyledMenuIcon = styled(MenuIcon)`
   margin-right: ${({ theme }) => theme.margin.xl};
 `

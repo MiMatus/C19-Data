@@ -24,12 +24,6 @@ export const Map: React.FC<MapProps> = ({
       : 0
   )
 
-  console.log(
-    sortedDesc.map((data) => {
-      return data.infectedCount / sortedDesc[0].infectedCount
-    })
-  )
-
   const Circles = sortedDesc.map((data, index) => {
     return (
       <Circle
@@ -59,7 +53,7 @@ export const Map: React.FC<MapProps> = ({
           lat: 49.8580783,
           lng: 15.6787117,
         }}
-        defaultZoom={8}
+        defaultZoom={7}
         yesIWantToUseGoogleMapApiInternals
         options={{
           styles: MapStyles,

@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from "next"
+import Head from "next/head"
 import { SummaryChart } from "../../components/SummaryChart"
 import {
   getSummaryInTimeData,
@@ -12,7 +13,14 @@ interface SummaryChartProps {
 const SummaryChartPage: NextPage<SummaryChartProps> = ({
   summaryInTimeDataResponse,
 }) => {
-  return <SummaryChart summaryInTimeData={summaryInTimeDataResponse} />
+  return (
+    <>
+      <Head>
+        <title key="title">C19-Data - Grafy - Celkový prehľad</title>
+      </Head>
+      <SummaryChart summaryInTimeData={summaryInTimeDataResponse} />
+    </>
+  )
 }
 
 export default SummaryChartPage
@@ -24,5 +32,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       summaryInTimeDataResponse: summaryInTimeDataResponse,
     },
+    revalidate: 3600,
   }
 }

@@ -22,7 +22,6 @@ const HomePage: NextPage<HomePageProps> = ({
   summaryDataResponse,
   infectedInTimeDataResponse,
 }) => {
-  console.log(infectedInTimeDataResponse)
   return (
     <HomepageComponent
       countyData={countyDataResponse}
@@ -39,13 +38,12 @@ export const getStaticProps: GetStaticProps = async () => {
   const summaryDataResponse = await getSummaryData()
   const infectedInTimeDataResponse = await getInfectedInTimeData()
 
-  console.log(infectedInTimeDataResponse)
   return {
     props: {
-      headerOnScroll: true,
       countyDataResponse: countyDataResponse,
       summaryDataResponse: summaryDataResponse,
       infectedInTimeDataResponse: infectedInTimeDataResponse,
     },
+    revalidate: 3600,
   }
 }

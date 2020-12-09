@@ -11,24 +11,41 @@ import {
 export const Form: React.FC = ({}) => {
   const [email, setEmail] = useState<string>("")
   const [message, setMessage] = useState<string>("")
-  const [messageSent, setMessageSent] = useState<boolean>(true)
+  const [formError, setFormError] = useState<boolean>(true)
+  const [messageSent, setMessageSent] = useState<boolean>(false)
 
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={(event) => event.preventDefault()}>
       <Row>
         <EmailInput
           type="email"
           title="Váš email"
           errorMessage="Email je povinný"
-          onInput={(value) => setEmail(value)}
+          onInput={(value) => {
+            setFormError(false)
+            setEmail(value)
+          }}
+          onError={() => setFormError(true)}
+          required
         ></EmailInput>
-        <SubmitButton type="submit">Odoslať</SubmitButton>
+        <SubmitButton
+          type="submit"
+          onClick={() => !formError && setMessageSent(true)}
+        >
+          Odoslať
+        </SubmitButton>
       </Row>
       <Row>
         <MessageInput
+          onError={() => setFormError(true)}
           type="textArea"
           title="Vaša správa"
-          onInput={(value) => setMessage(value)}
+          errorMessage="Správa je povinná"
+          onInput={(value) => {
+            setFormError(false)
+            setMessage(value)
+          }}
+          required
         ></MessageInput>
       </Row>
       {messageSent && (

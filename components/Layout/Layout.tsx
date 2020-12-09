@@ -3,16 +3,12 @@ import React from "react"
 import { Header } from "../Header"
 import { LayoutWrapper, MainContent } from "./Layout.style"
 
-interface LayoutProps {
-  headerOnScroll: boolean
-}
-
-export const Layout: React.FC<LayoutProps> = ({ children, headerOnScroll }) => {
+export const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title key="title">C19-Data</title>
+        <link rel="icon" href="/images/favicon/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -20,7 +16,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, headerOnScroll }) => {
         />
       </Head>
       <LayoutWrapper>
-        <Header onScroll={headerOnScroll}></Header>
+        <Header></Header>
         <MainContent>{children}</MainContent>
         <footer></footer>
       </LayoutWrapper>

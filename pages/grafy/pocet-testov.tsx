@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from "next"
+import Head from "next/head"
 import { TestsChart } from "../../components/TestsChart"
 import {
   getTestsInTimeData,
@@ -10,7 +11,14 @@ interface ChartsProps {
 }
 
 const Charts: NextPage<ChartsProps> = ({ testsInTimeDataResponse }) => {
-  return <TestsChart testsInTimeData={testsInTimeDataResponse} />
+  return (
+    <>
+      <Head>
+        <title key="title">C19-Data - Grafy - Pocet testov</title>
+      </Head>
+      <TestsChart testsInTimeData={testsInTimeDataResponse} />
+    </>
+  )
 }
 
 export default Charts
@@ -22,5 +30,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       testsInTimeDataResponse: testsInTimeDataResponse,
     },
+    revalidate: 3600,
   }
 }

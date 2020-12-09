@@ -4,9 +4,9 @@ export const ListWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  align-items: center;
+  justify-content: center;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoint["tablet"]}px) {

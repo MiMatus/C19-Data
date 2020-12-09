@@ -15,7 +15,7 @@ export const MessageWrapper = styled.div`
   border-radius: 15px;
   white-space: nowrap;
   position: absolute;
-  top: 0px;
+  bottom: 50%;
 
   &::before {
     display: block;

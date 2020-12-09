@@ -6,6 +6,7 @@ import {
   NavigationWrapper,
   Wrapper,
 } from "./Control.style"
+import Link from "next/link"
 
 interface ControlProps {
   className?: string
@@ -17,9 +18,15 @@ export const Control: React.FC<ControlProps> = ({ className }) => {
       <LargeLogo src="/images/logo-large.png" />
       <Description>Data & Čisla trochu inak</Description>
       <NavigationWrapper>
-        <NavIcon src="/images/stats-icon.svg"></NavIcon>
-        <NavIcon src="/images/info-icon.svg"></NavIcon>
-        <NavIcon src="/images/menu-icon.svg"></NavIcon>
+        <Link href="/grafy">
+          <NavIcon src="/images/stats-icon.svg"></NavIcon>
+        </Link>
+        <Link href="/informacie">
+          <NavIcon src="/images/info-icon.svg"></NavIcon>
+        </Link>
+        <Link href="/kontakt">
+          <NavIcon src="/images/phone.svg"></NavIcon>
+        </Link>
       </NavigationWrapper>
     </Wrapper>
   )

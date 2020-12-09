@@ -29,7 +29,36 @@ export const MenuList = styled.div`
 `
 
 export const MenuItem = styled.div`
-  font-weight: bold;
-  margin-top: ${({ theme }) => theme.margin.sm};
+  display: flex;
+  flex-direction: column;
+  margin-top: ${({ theme }) => theme.margin.md};
+`
+
+export const Icon = styled.img`
+  height: 35px;
+  width: 35px;
+`
+
+export const Text = styled.span`
   font-size: ${({ theme }) => theme.font.size.xl};
+  font-weight: bold;
+  margin-left: ${({ theme }) => theme.margin.sm};
+`
+
+export const MainWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`
+
+export const SubItemsWrapper = styled.div`
+  margin-top: ${({ theme }) => theme.margin.sm};
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+`
+
+export const SubItem = styled.div`
+  margin-top: ${({ theme }) => theme.margin.sm};
+  cursor: pointer;
 `

@@ -42,8 +42,13 @@ export const Title = styled.div<TitleProps>`
 
 export const Count = styled.span`
   font-weight: 900;
-  font-size: 56px;
+  font-size: 35px;
   white-space: nowrap;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    font-size: 56px;
+  }
 `
 
 interface StatWrapperProps {
