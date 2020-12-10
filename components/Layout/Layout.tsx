@@ -18,7 +18,10 @@ export const Layout: React.FC = ({ children }) => {
       <LayoutWrapper>
         <Header></Header>
         <MainContent>{children}</MainContent>
-        <Footer></Footer>
+        <Footer>
+          ⚠ Web je študentský projekt - spôsob zobrazenia dát a data samotné
+          nemusia byť odrazom reality
+        </Footer>
       </LayoutWrapper>
     </>
   )

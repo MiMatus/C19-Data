@@ -18,9 +18,18 @@ export const MainContent = styled.main`
 `
 
 export const Footer = styled.footer`
-  height: 50px;
+  height: 75px;
   background: #ffffff;
   box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.25);
   z-index: 100;
   flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #c2c2c2;
+  padding: 5px 40px;
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoint["tablet"]}px) {
+    height: 50px;
+  }
 `
