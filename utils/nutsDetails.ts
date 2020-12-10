@@ -11,8 +11,8 @@ export default {
   },
   CZ032: {
     title: "Plzeňský kraj",
-    lng: "12.5573758",
-    lat: "49.5218368",
+    lng: "13.2409343",
+    lat: "49.6427625",
   },
   CZ041: {
     title: "Karlovarský kraj",
@@ -21,8 +21,8 @@ export default {
   },
   CZ042: {
     title: "Ústecký kraj",
-    lng: "13.2361271",
-    lat: "50.5661316",
+    lng: "13.7928013",
+    lat: "50.4657354",
   },
   CZ051: {
     title: "Liberecký kraj",
